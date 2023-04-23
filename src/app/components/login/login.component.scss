@@ -11,19 +11,42 @@
 
 *{
     color: white;
+    font-family: monospace;
 }
 
 .font-error-custom p {
     padding: 0;
     margin: 0;
-    font-size: 1.20em;
+    font-size: 1.05em;
     font-weight: bold;
-    color: rgb(246, 45, 45) !important;
+    color: rgb(1, 0, 70) !important;
 }
+
+.boton{
+    height: 90px; 
+    width: 90px;
+}
+
+.boton-usuarios{
+    height: 80px; 
+    width: 80px;
+}
+
+.icono {
+    margin: 0 auto;
+    font-size: 36px !important; /* ajusta el tamaño del icono */
+    height: 65px; 
+    width: 65px;
+  }
 
 .font-title-custom{
     font-size: 2.5em !important;
     font-weight: bold !important;
+}
+
+.font-subtitle-custom{
+    font-weight: bold !important;
+    font-size: 1.5em !important;
 }
 
 .font-input-custom{

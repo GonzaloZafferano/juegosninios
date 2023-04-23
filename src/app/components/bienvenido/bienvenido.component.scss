@@ -6,3 +6,15 @@ h3{
 .contenedor{
     margin: auto;    
  }
+
+ *{
+    color: white;
+    font-family: monospace;
+}
+
+.icono {
+    margin: 0 auto;
+    font-size: 36px !important; /* ajusta el tamaño del icono */
+    height: 65px; 
+    width: 65px;
+  }
