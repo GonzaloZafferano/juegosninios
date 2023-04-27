@@ -8,7 +8,8 @@ import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Usuario } from 'src/app/models/usuario';
-
+import { LoadingController } from '@ionic/angular';
+import { settings } from 'cluster';
 
 @Component({
   selector: 'app-login',
@@ -35,14 +36,14 @@ export class LoginComponent implements OnInit {
   mensajeEmail: string = '';
   usuarios : Usuario [] = [];
   ruta : string = "/resources/icon.png";
-  constructor(private loginService: LoginService, private router:Router) { }
+  constructor(private loginService: LoginService, private router:Router, public loadingController: LoadingController) { }
   ngOnInit() {
     this.usuarios.push(new Usuario('gonzalo@prueba.com', '123456'));
     this.usuarios.push(new Usuario('silas@prueba.com', '654321'));
     this.usuarios.push(new Usuario('nico@prueba.com','111111'));
    }
 
-  login() {   
+  async login() {   
     let errorEnDatos = false;
     let emailValido = false;
 
@@ -69,11 +70,16 @@ export class LoginComponent implements OnInit {
         this.mensajePass = '';
 
     if (!errorEnDatos && emailValido) {
+      let loading = await this.presentLoading();
       this.loginService.loguearUsuario(this.email, this.password)
       .then(() => {
-        this.limpiarCampos();
-        this.router.navigate(['/home']);
-
+        
+        setTimeout(() => {
+          loading.dismiss();
+          this.limpiarCampos();
+          this.router.navigate(['/home']);
+          
+        }, 3000);
         //this.addNewItem(true);
       }).catch(() => {
         this.mensajeError = "Correo o contraseña inválidos.";
@@ -82,6 +88,18 @@ export class LoginComponent implements OnInit {
       this.mensajeError = 'Corrija los errores y vuelva a intentar.';
     }
   }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...',
+      spinner: 'dots',
+      translucent: true,
+      cssClass: 'custom-class'
+    });
+    await loading.present();
+    return loading;   
+  }
+
 
   validadCampoVacio(item: IonInput) {
     let errorEnDatos = false;
