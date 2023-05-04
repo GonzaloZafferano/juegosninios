@@ -8,6 +8,10 @@
   transform: translateY(-50%);
 }
 
+.logout{
+  height: 40px !important;
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;
@@ -26,6 +30,69 @@
   text-decoration: none;
 }
 
-.container{
+.container {
   margin: auto;
+}
+
+ion-fab-button img {
+  width: 50px;
+  height: 50px;
+}
+
+ion-fab {
+  display: flex;
+  flex-direction: row;
+  margin: 0px !important;
+  top: 2px !important;
+  ion-fab-button {
+    --border-radius: 0px !important;
+    //background-color: red; //CAMBIA EL COLOR DEL BOTON
+    --background: rgba(237, 229, 229, 0.444) !important; //CAMBIA EL COLOR DEL ELEMENTO CENTRAL (adentro del boton del ion-fab-button)
+    //background-image: url("/assets/idioma/Usa.png");
+
+    margin: 0px 3px !important;
+  }
+}
+
+.boton {
+  height: 87vh !important;
+  width: 19.15vw !important;
+  margin: 3px;
+}
+
+// ion-fab-button{
+//   margin-top: 40px !important;
+// }
+
+img{
+  height: auto;
+  width: 100%;
+}
+ion-fab {}
+
+.temas {}
+
+@media screen and (max-width: 739px) {
+  .boton {
+    width: 98vw !important;
+    height: 18vh !important;
+    margin: 3px;
+  }
+
+  // ion-fab-button{
+  //   margin: 10px !important;
+  // }
+  img{
+    height: 100%;
+    width: auto;
+  }
+
+  ion-fab {
+    display: flex;
+    flex-direction: column;
+    top: 10px !important;
+    ion-fab-button {
+  margin: 3px 3px !important;
+    }
+  }
 }

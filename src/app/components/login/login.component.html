@@ -1,9 +1,9 @@
-<div class="container-fluid m-0 p-0 " color="success">
+<div class="container-fluid m-0 p-0 contenedor-principal" color="success">
   <!-- <h1 style="margin: 0; text-align: center; font-weight: bold;">Relevamiento Visual</h1> -->
   
-  <ion-card class="sombra " color="tertiary">
-    <ion-card-header>
-      <ion-card-title class="ion-text-center font-title-custom">BIENVENIDO</ion-card-title>
+  <ion-card class="sombra" color="tertiary">
+    <ion-card-header style="margin: 0px;">
+      <ion-card-title  class="ion-text-center font-title-custom">BIENVENIDO</ion-card-title>
       <!-- <ion-card-subtitle class="ion-text-center font-subtitle-custom">Por favor, complete sus datos para iniciar sesión</ion-card-subtitle> -->
     </ion-card-header>
     <ion-card-content>
@@ -19,8 +19,9 @@
         </div>
       </div>
        <!--CENTRADO UNO CON GRILLAS-->
+
       <!--BOTON INGRESAR-->
-      <ion-grid>
+      <!-- <ion-grid>
         <ion-row class="ion-align-items-center">
           <ion-col size="12" class="ion-text-center">
             <ion-button color="success" class="boton" fill="solid" type="ion-button" (click)="login()" shape="round" id="btn-send">
@@ -28,15 +29,23 @@
             </ion-button>
           </ion-col>
         </ion-row>
-      </ion-grid>
+      </ion-grid> -->
+
+
+      <div class="login" style="width: 96vw; display: flex; justify-content: center; margin: 0px; padding: 0px;">
+        <ion-button color="success" class="boton" fill="solid" type="ion-button" (click)="login()" shape="round" id="btn-send">
+          <ion-icon class="icono" size="large" name="chevron-forward-circle"></ion-icon>
+        </ion-button>
+      </div>
       <div class="font-error-custom error-message-height">
         <p>{{mensajeError}}</p>
       </div>
+      
       <!--CONTRASEÑA-->
       <div class="margin-custom">
         <ion-label class="ion-text-start bold font-input-custom" style="border-radius: 20px;">Ingrese su contraseña:</ion-label>
         <ion-item style="--background: #26d268;">
-          <ion-input color="dark" type="password" placeholder="contraseña" #pass (ionInput)="validadCampoVacio(pass)"
+          <ion-input color="dark" class="inputs-custom" type="password" placeholder="contraseña" #pass (ionInput)="validadCampoVacio(pass)"
             [(ngModel)]="password"></ion-input>
         </ion-item>
         <div class="font-error-custom error-message-height">
@@ -62,7 +71,7 @@
 </ion-content> -->
 
   <!--CENTRADO DE BOTONES CON BLOCK o FULL (ocupa todo el ancho)-->
-  <div class="d-flex justify-content-around my-2">
+  <div class="d-flex justify-content-around my-2 botones-log">
     <!--BOTON 1-->
     <ion-button expand="" class="boton-usuarios" color="medium" fill="solid" type="Button" shape="" id="btn-usuarioUno"
       (click)="cargarUsuario(0)">
@@ -84,5 +93,7 @@
       <ion-icon class="icono" name="accessibility"></ion-icon>
       <!-- <ion-icon slot="start" size="large" name="person-circle"></ion-icon> -->
     </ion-button>
+
+    <!-- <video src="assets/prueba.mp3" autoplay></video> -->
   </div>
 </div>

@@ -24,3 +24,51 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+
+
+ion-loading.custom-class {
+    text-align: center;
+    // background-color: red; //COLOR DEL MODAL (Atras)
+    //justify-content: center; //ubicacion de la caja
+    width: 100vw; //ANCHO DEL MODAL
+    --background: #f0874f; //COLOR DE LA CAJA (por delante)
+    --spinner-color: #ffffff;
+    flex-direction: row-reverse;
+    font-size: 2em;
+    color: #FDCA40;
+    font-weight: bold;
+    --border-radius: 50px;
+    // background-image: url("assets/logout.png");
+    // background-repeat: no-repeat;
+    // background-size: auto;
+}
+
+.logoout ion-backdrop+div+div{
+    background-image: url("assets/logout.png") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+//LA CAJA QUE CONTIENE AL TEXTO Y SPINNER.
+ion-backdrop+div+div {
+    //background-color: red !important;
+    border-radius: 10px !important;
+}
+
+//AGARRO A LA CAJITA ESPECIFICA DEL TEXTO.
+ion-loading div:nth-of-type(2) {
+    //background-color: red;  
+    //border-radius: 10px; 
+    //padding: 0px !important;
+    flex-direction: column-reverse;
+}
+
+ion-spinner {
+    transform: scale(2);
+    margin: 20px;
+    border-radius: 20px;
+    //width: 3em;
+    // height: 3em;
+}

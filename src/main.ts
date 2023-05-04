@@ -9,6 +9,7 @@ import { environment } from './environments/environment';
 
 //Agregamos ESTO
 import { AngularFireModule } from '@angular/fire/compat';
+import { NativeAudio } from '@awesome-cordova-plugins/native-audio/ngx';
 
 if (environment.production) {
   enableProdMode();
@@ -18,9 +19,9 @@ bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     importProvidersFrom(IonicModule.forRoot({})),
-
+    NativeAudio,
     //Y ESTO
     importProvidersFrom(AngularFireModule.initializeApp(environment.firebaseConfig)),
-    provideRouter(routes)
+    provideRouter(routes) 
   ],
 });

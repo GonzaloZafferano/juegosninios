@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { IonInput, IonicModule } from '@ionic/angular';
+import { IonInput, IonicModule, Platform } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 import { Usuario } from 'src/app/models/usuario';
 import { LoadingController } from '@ionic/angular';
 import { settings } from 'cluster';
+import { NativeAudio } from '@awesome-cordova-plugins/native-audio/ngx';
+
 
 @Component({
   selector: 'app-login',
@@ -34,16 +36,50 @@ export class LoginComponent implements OnInit {
   mensajeError: string = '';
   mensajePass: string = '';
   mensajeEmail: string = '';
-  usuarios : Usuario [] = [];
-  ruta : string = "/resources/icon.png";
-  constructor(private loginService: LoginService, private router:Router, public loadingController: LoadingController) { }
+  usuarios: Usuario[] = [];
+  ruta: string = "/resources/icon.png";
+  constructor(private platform: Platform , private nativeAudio: NativeAudio, private loginService: LoginService, private router: Router, public loadingController: LoadingController) { }
   ngOnInit() {
-    this.usuarios.push(new Usuario('gonzalo@prueba.com', '123456'));
-    this.usuarios.push(new Usuario('silas@prueba.com', '654321'));
-    this.usuarios.push(new Usuario('nico@prueba.com','111111'));
-   }
+    this.usuarios.push(new Usuario('admin@admin.com', '111111'));
+    this.usuarios.push(new Usuario('invitado@invitado.com', '222222'));
+    this.usuarios.push(new Usuario('usuario@usuario.com', '333333'));
+    this.usuarios.push(new Usuario('tester@tester.com', '555555'));
 
-  async login() {   
+    this.platform.backButton.subscribeWithPriority(0, () => {
+      // Agrega la acción que deseas realizar cuando se presiona el botón de retroceso   
+    });
+
+
+
+
+   // this.nativeAudio.preloadSimple('uniqueId1', 'assets/prueba.mp3')
+      // .then(() => {
+      //   this.nativeAudio.play('uniqueId1');
+      // })
+      ;//.then(onSuccess, onError);
+    /*
+this.nativeAudio.preloadComplex('uniqueId2', 'path/to/file2.mp3', 1, 1, 0).then(onSuccess, onError);
+
+this.nativeAudio.play('uniqueId1').then(onSuccess, onError);
+
+// can optionally pass a callback to be called when the file is done playing
+this.nativeAudio.play('uniqueId1', () => console.log('uniqueId1 is done playing'));
+
+this.nativeAudio.loop('uniqueId2').then(onSuccess, onError);
+
+this.nativeAudio.setVolumeForComplexAsset('uniqueId2', 0.6).then(onSuccess,onError);
+
+this.nativeAudio.stop('uniqueId1').then(onSuccess,onError);
+
+this.nativeAudio.unload('uniqueId1').then(onSuccess,onError);
+ 
+*/
+ 
+  }
+
+  async login() {
+      //  this.nativeAudio.play('uniqueId1');
+    
     let errorEnDatos = false;
     let emailValido = false;
 
@@ -72,18 +108,17 @@ export class LoginComponent implements OnInit {
     if (!errorEnDatos && emailValido) {
       let loading = await this.presentLoading();
       this.loginService.loguearUsuario(this.email, this.password)
-      .then(() => {
-        
-        setTimeout(() => {
-          loading.dismiss();
+        .then(() => {
           this.limpiarCampos();
-          this.router.navigate(['/home']);
-          
-        }, 3000);
-        //this.addNewItem(true);
-      }).catch(() => {
-        this.mensajeError = "Correo o contraseña inválidos.";
-      });
+          this.router.navigate(['/home'])
+          .then(()=>{
+            setTimeout(() => {
+              loading.dismiss();
+            }, 2000);
+          });     
+        }).catch(() => {
+          this.mensajeError = "Correo o contraseña inválidos.";
+        });
     } else {
       this.mensajeError = 'Corrija los errores y vuelva a intentar.';
     }
@@ -91,13 +126,13 @@ export class LoginComponent implements OnInit {
 
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: 'Cargando...',
-      spinner: 'dots',
+     // message: 'Cargando...',
+      spinner: 'crescent',
       translucent: true,
       cssClass: 'custom-class'
     });
     await loading.present();
-    return loading;   
+    return loading;
   }
 
 
@@ -123,7 +158,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  limpiarCampos(){
+  limpiarCampos() {
     this.email = '';
     this.password = '';
   }
@@ -140,18 +175,18 @@ export class LoginComponent implements OnInit {
     this.newItemEvent.emit(value);
   }
 
-  registrar(){  
+  registrar() {
     this.router.navigate(['/registro']);
   }
 
-  limpiarErrores(){
+  limpiarErrores() {
     this.mensajeEmail = '';
     this.mensajeError = '';
     this.mensajePass = '';
   }
-  
-  cargarUsuario(indice : number){
-    if(indice >= 0 && indice < this.usuarios.length){
+
+  cargarUsuario(indice: number) {
+    if (indice >= 0 && indice < this.usuarios.length) {
       this.limpiarErrores();
       let usuario = this.usuarios[indice];
       this.email = usuario.usuario;

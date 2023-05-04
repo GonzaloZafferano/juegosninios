@@ -1,9 +1,61 @@
-<div *ngIf="(afAuth.user | async); else loguearUsuario">
-  <app-bienvenido></app-bienvenido>
-</div>
-<ng-template #loguearUsuario>
+<ion-header class="d-flex ion-justify-content-between" style="height: 40px;">
+  <img style="width: 40px !important; margin-left: 2px;" [src]="rutaIdioma">
+  <ion-buttons class="d-flex ion-justify-content-center">
+    <ion-button color="tertiary" fill="solid" shape="round" class="logout" id="btn-logout" (click)="logout()">
+      <ion-icon style="font-size: 4em; padding: 0; margin: 0;" name="close-circle"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <img style="width: 40px !important; margin-right: 2px;" [src]="rutaTema">
+</ion-header>
+<ion-content color="tertiary" scrollY="false">
 
-   <app-login></app-login>
+  <ion-fab class="idiomas" vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button class="my-2" (click)="cambiarIdioma(1)"> <!--//0 Español, 1 Ingles, 2 Portugues-->
+      <!-- <img src="assets/idioma/Usa.png"  width="55px" height="55px"> -->
+      <img src="assets/idioma/Usa.png">  
+    </ion-fab-button>
 
-</ng-template>
+    <ion-fab-button class="my-2"  (click)="cambiarIdioma(0)">
+      <img src="assets/idioma/espa.png">
+    </ion-fab-button>
 
+    <ion-fab-button class="my-2" (click)="cambiarIdioma(2)">
+      <img src="assets/idioma/portugues.png">
+      <!-- <ion-icon src="assets/idioma/portugues.png"></ion-icon> -->
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- <ion-fab style="position: fixed; top: 30px; right: 0px;"> -->
+    <ion-fab class="temas" vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button class="my-2" (click)="cambiarTema(0)"> <!--//0 Animales, 1 Colores, 2 numeros-->
+      <img src="assets/a.png" >
+    </ion-fab-button>
+
+    <ion-fab-button class="my-2" (click)="cambiarTema(1)">
+      <img src="assets/c.png" >
+    </ion-fab-button>
+
+    <ion-fab-button class="my-2" (click)="cambiarTema(2)">
+      <img src="assets/n.png" >
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+  
+  <ion-button  class="boton" (click)="itemSeleccionado(0)">
+    <img [src]="rutas[0]"  height="100%">
+  </ion-button>  
+  <ion-button  class="boton" (click)="itemSeleccionado(1)">
+    <img [src]="rutas[1]"  height="100%">
+  </ion-button>  
+  <ion-button class="boton" (click)="itemSeleccionado(2)">
+    <img [src]="rutas[2]"  height="100%">
+  </ion-button>  
+  <ion-button class="boton" (click)="itemSeleccionado(3)">
+    <img [src]="rutas[3]"  height="100%">
+  </ion-button>  
+  <ion-button class="boton" (click)="itemSeleccionado(4)">
+    <img [src]="rutas[4]" height="100%">
+  </ion-button>
+</ion-content>

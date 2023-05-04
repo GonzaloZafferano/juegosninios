@@ -5,11 +5,11 @@
     margin: 0;
 }
 
-.margin-custom{
+.margin-custom {
     margin: 10px 0;
 }
 
-*{
+* {
     color: white;
     font-family: monospace;
 }
@@ -22,90 +22,169 @@
     color: rgb(1, 0, 70) !important;
 }
 
-.boton{
-    height: 90px; 
+.boton {
+    height: 90px;
     width: 90px;
 }
 
-.boton-usuarios{
-    height: 80px; 
-    width: 80px;
+.boton-usuarios {
+    height: 110px;
+    width: 110px;
 }
 
 .icono {
     margin: 0 auto;
-    font-size: 36px !important; /* ajusta el tamaño del icono */
-    height: 65px; 
+    font-size: 36px !important;
+    /* ajusta el tamaño del icono */
+    height: 65px;
     width: 65px;
-  }
+}
 
-.font-title-custom{
+.font-title-custom {
     font-size: 2.5em !important;
     font-weight: bold !important;
 }
 
-.font-subtitle-custom{
+.font-subtitle-custom {
     font-weight: bold !important;
     font-size: 1.5em !important;
 }
 
-.font-input-custom{
-font-size: 1.6em;
+.font-input-custom {
+    font-size: 1.6em;
 }
 
-.font-login-custom{
-font-size: 1.6em;
-font-weight: bold;
-padding: 5px !important;
+.font-login-custom {
+    font-size: 1.6em;
+    font-weight: bold;
+    padding: 5px !important;
 }
 
-.contenedor{
-   margin: auto !important;   
+.contenedor {
+    margin: auto !important;
 }
 
 .d-block {
     display: block !important;
 }
 
-.bold{
+.bold {
     font-weight: bold !important;
 }
 
-.p-1{
+.p-1 {
     padding: 5px !important;
 }
 
-.transparente{
+.transparente {
     background-color: red !important;
 }
 
-.item-background-color{
-    --ion-item-background:#015f0100;
+.item-background-color {
+    --ion-item-background: #015f0100;
 }
 
-.imagen{
+.imagen {
     display: flex;
     justify-content: center;
 }
 
-.imagen img{    
+.imagen img {
     width: 100px;
     height: 100px;
     border-radius: 20px;
 }
 
-.error-message-height{
+.error-message-height {
     min-height: 25px !important;
 }
 
-.sombra{
+.sombra {
     margin: 15px 0px;
     /*horizontal - vertical - difuminado - color*/
     box-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
-    -2px -7px 5px rgba(0, 0, 0, 0.3);
+        -2px -7px 5px rgba(0, 0, 0, 0.3);
+        border-radius: 30px;
 }
 
-.inputs-custom{
+.inputs-custom {
     background-color: rgba(10, 253, 63, 0) !important;
     border-radius: 30px !important;
+    font-size: 1.5em;
+}
+
+
+@media screen and (min-width: 739px) {
+    // .boton {
+    //     width: 98vw !important;
+    //     height: 18vh !important;
+    //     margin: 3px;
+    // }
+
+    // // ion-fab-button{
+    // //   margin: 10px !important;
+    // // }
+    // img {
+    //     height: 100%;
+    //     width: auto;
+    // }
+
+    // ion-fab {
+    //     display: flex;
+    //     flex-direction: column;
+    //     top: 10px !important;
+
+    //     ion-fab-button {
+    //         margin: 3px 3px !important;
+    //     }
+    // }
+
+    * {
+        font-size: 1em !important;
+    }
+
+    .font-title-custom {
+        font-size: 1.5em !important;
+    }
+
+    .sombra {
+        width: 80vw !important;
+        height: 98vh !important;
+        margin: 2px !important;
+    }
+
+    .contenedor-principal {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-around;
+    }
+
+    .imagen{
+        width: 18vw !important;
+        height: 98vh !important;
+        align-items: center;
+        margin: 0px !important;
+    }
+
+    .botones-log{
+        height: 98vh !important;
+        width: 18vw !important;
+        flex-direction: column;
+        margin: 0px !important;
+        justify-content: space-around !important;
+    }
+
+    .login{
+        width: 100% !important;
+        justify-content: end !important;
+        height: 50px;
+    }
+
+    .boton{   
+        height: 50px;
+    }
+
+    .margin-custom{
+        margin-top: 0px !important;
+    }
 }

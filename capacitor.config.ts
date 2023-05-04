@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'PruebaApp',
+  appName: 'Tabla didáctica de idiomas para niños',
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {
