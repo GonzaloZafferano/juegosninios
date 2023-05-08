@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package juegoninios.starter;
 
 import com.getcapacitor.BridgeActivity;
 

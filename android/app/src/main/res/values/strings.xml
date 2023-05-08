@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Tabla didáctica de idiomas para niños</string>
     <string name="title_activity_main">Tabla didáctica de idiomas para niños</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">juegoninios.starter</string>
+    <string name="custom_url_scheme">juegoninios.starter</string>
 </resources>

@@ -51,7 +51,7 @@ export class HomePage {
     'assets/colores/rojo.png',
     'assets/colores/verde.png',
     'assets/colores/azul.png',
-    'assets/colores/amarillo.png',
+    'assets/colores/rosado.png',
     'assets/colores/naranja.png',
   ];
   animales: string[] = [
@@ -90,7 +90,7 @@ export class HomePage {
     {tipo : 'rojo', ruta :'assets/sonidos/rojoESP.mp3'},
     {tipo : 'verde', ruta :'assets/sonidos/verdeESP.mp3'},
     {tipo : 'azul', ruta :'assets/sonidos/azulESP.mp3'},
-    {tipo : 'amarillo', ruta :'assets/sonidos/amarilloESP.mp3'},
+    {tipo : 'rosado', ruta :'assets/sonidos/rosadoESP.mp3'},
     {tipo : 'naranja', ruta :'assets/sonidos/naranjaESP.mp3'},
   ];
 
@@ -98,7 +98,7 @@ export class HomePage {
     {tipo : 'rojo', ruta :'assets/sonidos/rojoPOR.mp3'},
     {tipo : 'verde', ruta :'assets/sonidos/verdePOR.mp3'},
     {tipo : 'azul', ruta :'assets/sonidos/azulPOR.mp3'},
-    {tipo : 'amarillo', ruta :'assets/sonidos/amarilloPOR.mp3'},
+    {tipo : 'rosado', ruta :'assets/sonidos/rosadoPOR.mp3'},
     {tipo : 'naranja', ruta :'assets/sonidos/naranjaPOR.mp3'},
   ];
 
@@ -106,7 +106,7 @@ export class HomePage {
     {tipo : 'rojo', ruta :'assets/sonidos/rojoING.mp3'},
     {tipo : 'verde', ruta :'assets/sonidos/verdeING.mp3'},
     {tipo : 'azul', ruta :'assets/sonidos/azulING.mp3'},
-    {tipo : 'amarillo', ruta :'assets/sonidos/amarilloING.mp3'},
+    {tipo : 'rosado', ruta :'assets/sonidos/rosadoING.mp3'},
     {tipo : 'naranja', ruta :'assets/sonidos/naranjaING.mp3'},
   ];
 
@@ -238,7 +238,7 @@ export class HomePage {
     await this.nativeAudio.unload('rojo');
     await this.nativeAudio.unload('verde');
     await this.nativeAudio.unload('azul');
-    await this.nativeAudio.unload('amarillo');
+    await this.nativeAudio.unload('rosado');
     await this.nativeAudio.unload('naranja'); 
   }
   
@@ -277,7 +277,7 @@ export class HomePage {
     // this.nativeAudio.preloadSimple('rojo', colores[0]);
     // this.nativeAudio.preloadSimple('verde', colores[1]);
     // this.nativeAudio.preloadSimple('azul', colores[2]);
-    // this.nativeAudio.preloadSimple('amarillo', colores[3]);
+    // this.nativeAudio.preloadSimple('rosado', colores[3]);
     // this.nativeAudio.preloadSimple('naranja', colores[4]);
   }
 
